@@ -1,5 +1,6 @@
 import './App.css'
 import { connect } from 'react-redux'
+import { decrementAction, incrementAction } from './actions'
 
 // mapStateToProps is a function getting the state as an argument
 // and must return an object
@@ -14,19 +15,20 @@ const mapStateToProps = (state) => ({
 // every KEY of this object will be a prop for your connected component
 const mapDispatchToProps = (dispatch) => ({
   incrementCounter: () => {
-    dispatch({
-      type: 'INCREMENT',
-    })
+    dispatch(incrementAction())
+  },
+  decrementCounter: () => {
+    dispatch(decrementAction())
   },
 })
 
-const App = ({ count, incrementCounter }) => {
+const App = ({ count, incrementCounter, decrementCounter }) => {
   return (
     <div className="App">
       <header className="App-header">
         <button onClick={incrementCounter}>+</button>
         {count}
-        <button>-</button>
+        <button onClick={decrementCounter}>-</button>
       </header>
     </div>
   )
