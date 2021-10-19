@@ -5,6 +5,7 @@ import { mainReducer } from '../reducers'
 
 export const initialState = {
   count: 0,
+  isLoading: false,
 }
 
 // createStore tipically takes 3 arguments:
